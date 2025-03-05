@@ -86,11 +86,12 @@ namespace ElearningPortal
                 var mongoDatabase = mongoClient.GetDatabase("ElearningDB");
                 ICourseService courseService = new CourseService(mongoDatabase);
                 PaymentService paymentService = new PaymentService();
+                PaymentHandler paymentHandler = new PaymentHandler(paymentService);
 
 
                 if (user.Role == "Student")
                 {
-                    portal = new StudentPortal(courseService, paymentService);
+                    portal = new StudentPortal(courseService, paymentHandler);
                 }
                 else
                 {
