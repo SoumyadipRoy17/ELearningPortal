@@ -137,12 +137,14 @@
   <ItemGroup>
     <Compile Include="Database\MongoDatabase.cs" />
     <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Functionalities\AdminPortal.cs" />
     <Compile Include="Functionalities\IAssignments.cs" />
     <Compile Include="Functionalities\IPortal.cs" />
     <Compile Include="Functionalities\ITests.cs" />
     <Compile Include="Functionalities\ProfessorPortal.cs" />
     <Compile Include="Functionalities\StudentPortal.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
@@ -152,6 +154,8 @@
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\IAuthService.cs" />
     <Compile Include="Services\ICourseService.cs" />
+    <Compile Include="Services\INotificationService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PaymentHandler.cs" />
     <Compile Include="Services\PaymentMethods.cs" />
     <Compile Include="Services\PaymentService.cs" />

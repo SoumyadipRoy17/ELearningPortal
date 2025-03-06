@@ -194,15 +194,20 @@ namespace ElearningPortal.Functionalities
     {
         private readonly ICourseService _courseService;
         private readonly PaymentHandler _paymentHandler;  // ✅ Encapsulated payment logic
+        private readonly NotificationService _notificationService;
+        private readonly string _userId;
 
-        public StudentPortal(ICourseService courseService, PaymentHandler paymentHandler)
+        public StudentPortal(ICourseService courseService, PaymentHandler paymentHandler, NotificationService notificationService, string userId)
         {
             _courseService = courseService;
             _paymentHandler = paymentHandler;
+            _notificationService = notificationService;
+            _userId = userId;
         }
 
         public void ShowMenu()
         {
+            ShowNotifications();  // ✅ Show unread notifications when the student logs in
             while (true)
             {
                 Console.WriteLine("\n📚 Student Portal:");
@@ -233,7 +238,18 @@ namespace ElearningPortal.Functionalities
                 }
             }
         }
-
+        private void ShowNotifications()
+        {
+            var notifications = _notificationService.GetNotificationsForUser(_userId);
+            if (notifications.Count > 0)
+            {
+                Console.WriteLine("\n🔔 Notifications:");
+                foreach (var notification in notifications)
+                {
+                    Console.WriteLine($"📢 {notification.Message} ({notification.CreatedAt})");
+                }
+            }
+        }
         private void ShowCourses()
         {
             Console.WriteLine("\n📚 Available Courses:");

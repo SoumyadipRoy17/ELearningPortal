@@ -59,15 +59,20 @@
 //    }
 //}
 using ElearningPortal.Functionalities;
+using ElearningPortal.Services;
 using System;
 
 public class ProfessorPortal : IPortal
 {
     private readonly ICourseService _courseService;
+    private readonly NotificationService _notificationService;
+    private readonly string _userId;
 
-    public ProfessorPortal(ICourseService courseService)
+    public ProfessorPortal(ICourseService courseService, NotificationService notificationService, string userId)
     {
         _courseService = courseService;
+        _notificationService = notificationService;
+        _userId = userId;
     }
 
 
@@ -78,6 +83,8 @@ public class ProfessorPortal : IPortal
 
     public void ManageCourses()
     {
+
+        ShowNotifications();
         Console.WriteLine("\n🎓 Professor Portal:");
         Console.WriteLine("1. Add Course");
         Console.WriteLine("2. View All Courses");
@@ -117,6 +124,19 @@ public class ProfessorPortal : IPortal
                     Console.WriteLine($"- {course.CourseName} (₹{course.Price})");
                 }
 
+            }
+        }
+
+    }
+    private void ShowNotifications()
+    {
+        var notifications = _notificationService.GetNotificationsForUser(_userId);
+        if (notifications.Count > 0)
+        {
+            Console.WriteLine("\n🔔 Notifications:");
+            foreach (var notification in notifications)
+            {
+                Console.WriteLine($"📢 {notification.Message} ({notification.CreatedAt})");
             }
         }
     }

@@ -84,18 +84,23 @@ namespace ElearningPortal
                 // Fix: Pass the correct IMongoDatabase instance to CourseService
                 var mongoClient = new MongoClient("mongodb+srv://soumyaroy172003:Soumya1234@elearning.huh4k.mongodb.net");
                 var mongoDatabase = mongoClient.GetDatabase("ElearningDB");
+                var notificationService = new NotificationService(mongoDatabase);
+
                 ICourseService courseService = new CourseService(mongoDatabase);
                 PaymentService paymentService = new PaymentService();
                 PaymentHandler paymentHandler = new PaymentHandler(paymentService);
 
-
                 if (user.Role == "Student")
                 {
-                    portal = new StudentPortal(courseService, paymentHandler);
+                    portal = new StudentPortal(courseService, paymentHandler, notificationService, user.Id);
+                }
+                else if (user.Role == "Admin")
+                {
+                    portal = new AdminPortal(notificationService);
                 }
                 else
                 {
-                    portal = new ProfessorPortal(courseService);
+                    portal = new ProfessorPortal(courseService, notificationService, user.Id);
                 }
 
                 portal.ShowMenu();
