@@ -20,12 +20,12 @@ namespace ElearningPortal.Functionalities
 
         public void Attempt()
         {
-            Console.WriteLine($"📝 Attempting MCQ Test: {Title}");
+            Console.WriteLine($"Attempting MCQ Test: {Title}");
         }
 
         public void Submit()
         {
-            Console.WriteLine($"✅ MCQ Test '{Title}' submitted successfully!");
+            Console.WriteLine($"MCQ Test '{Title}' submitted successfully!");
         }
     }
 

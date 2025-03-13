@@ -15,7 +15,7 @@ namespace ElearningPortal.Services
 
         public bool ProcessPayment(double price)
         {
-            Console.WriteLine($"💰 Course Price: ₹{price}");
+            Console.WriteLine($"Course Price: Rs{price}");
             Console.WriteLine("Select Payment Method (1. Credit Card, 2. PayPal, 3. UPI): ");
             string paymentChoice = Console.ReadLine();
             PaymentMethod paymentMethod = null;
@@ -32,7 +32,7 @@ namespace ElearningPortal.Services
                     paymentMethod = new UPIPayment(Convert.ToDecimal(price));
                     break;
                 default:
-                    Console.WriteLine("⚠️ Invalid payment method.");
+                    Console.WriteLine("Invalid payment method.");
                     return false;
             }
 

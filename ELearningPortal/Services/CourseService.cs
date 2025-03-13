@@ -78,7 +78,7 @@ namespace ElearningPortal.Services
         {
             var course = new Course { CourseName = courseName, Price = price };
             _courses.InsertOne(course);
-            Console.WriteLine($"✅ Course '{courseName}' added with price: ₹{price}");
+            Console.WriteLine($"Course '{courseName}' added with price: Rs{price}");
         }
 
         public List<Course> GetAllCourses()
@@ -93,7 +93,7 @@ namespace ElearningPortal.Services
 
         public void EnrollStudent(string courseId)
         {
-            Console.WriteLine($"🎉 Student successfully enrolled in course with ID {courseId}.");
+            Console.WriteLine($" Student successfully enrolled in course with ID {courseId}.");
         }
     }
 }

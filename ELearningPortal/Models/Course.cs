@@ -11,5 +11,5 @@ public class Course
     public string CourseName { get; set; }
 
     [BsonElement("Price")]
-    public double Price { get; set; } // ✅ Added Price property
+    public double Price { get; set; } 
 }

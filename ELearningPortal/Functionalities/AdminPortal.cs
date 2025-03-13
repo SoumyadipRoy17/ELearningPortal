@@ -16,7 +16,7 @@ namespace ElearningPortal.Functionalities
         {
             while (true)
             {
-                Console.WriteLine("\n🔧 Admin Portal - Manage Notifications:");
+                Console.WriteLine("\n Admin Portal - Manage Notifications:");
                 Console.WriteLine("1. Send Notification to All Users");
                 Console.WriteLine("2. Exit");
 
@@ -31,7 +31,7 @@ namespace ElearningPortal.Functionalities
                     case "2":
                         return;
                     default:
-                        Console.WriteLine("⚠️ Invalid choice. Please try again.");
+                        Console.WriteLine(" Invalid choice. Please try again.");
                         break;
                 }
             }

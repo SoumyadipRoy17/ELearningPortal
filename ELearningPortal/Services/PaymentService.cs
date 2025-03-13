@@ -9,7 +9,7 @@ namespace ElearningPortal.Services
         {
             if (paymentMethod == null)
             {
-                Console.WriteLine("❌ Payment method is invalid.");
+                Console.WriteLine("Payment method is invalid.");
                 return false;
             }
 

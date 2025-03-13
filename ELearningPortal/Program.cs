@@ -107,12 +107,12 @@ namespace ElearningPortal
             }
             else
             {
-                Console.WriteLine("⚠️ User not found. Registering new user...");
+                Console.WriteLine(" User not found. Registering new user...");
                 Console.WriteLine("Are you a Student or a Professor? (Enter 'Student' or 'Professor'):");
                 string role = Console.ReadLine();
 
                 authService.Register(username, password, role);
-                Console.WriteLine("✅ User registered successfully! Please restart the application and log in.");
+                Console.WriteLine("User registered successfully! Please restart the application and log in.");
             }
         }
     }

@@ -46,7 +46,7 @@ namespace ElearningPortal.Services
     public class NotificationService : INotificationService
     {
         private readonly IMongoCollection<Notification> _notifications;
-
+        
         public NotificationService(IMongoDatabase database)
         {
             _notifications = database.GetCollection<Notification>("Notifications");
@@ -61,7 +61,7 @@ namespace ElearningPortal.Services
                 UserId = "All"
             };
             _notifications.InsertOne(notification);
-            Console.WriteLine("✅ Notification sent to all users.");
+            Console.WriteLine(" Notification sent to all users.");
         }
 
         public List<Notification> GetNotificationsForUser(string userId)

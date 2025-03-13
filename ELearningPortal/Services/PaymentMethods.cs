@@ -66,6 +66,60 @@ namespace ElearningPortal.Services
 }
 */
 
+//using System;
+
+//namespace ElearningPortal.Functionalities
+//{
+//    public abstract class PaymentMethod
+//    {
+//        public decimal Amount { get; protected set; }
+
+//        protected PaymentMethod(decimal amount)
+//        {
+//            if (amount <= 0)
+//                throw new ArgumentException("Payment amount must be greater than zero.");
+
+//            Amount = amount;
+//        }
+
+//        public abstract bool ProcessPayment();
+//    }
+
+//    public class CreditCardPayment : PaymentMethod
+//    {
+//        public CreditCardPayment(decimal amount) : base(amount) { }
+
+//        public override bool ProcessPayment()
+//        {
+//            Console.WriteLine($"✅ Paid ₹{Amount} using Credit Card.");
+//            return true;
+//        }
+//    }
+
+//    public class PayPalPayment : PaymentMethod
+//    {
+//        public PayPalPayment(decimal amount) : base(amount) { }
+
+//        public override bool ProcessPayment()
+//        {
+//            Console.WriteLine($"✅ Paid ₹{Amount} using PayPal.");
+//            return true;
+//        }
+//    }
+
+//    public class UPIPayment : PaymentMethod
+//    {
+//        public UPIPayment(decimal amount) : base(amount) { }
+
+//        public override bool ProcessPayment()
+//        {
+//            Console.WriteLine($"✅ Paid ₹{Amount} using UPI.");
+//            return true;
+//        }
+//    }
+//}
+
+
 using System;
 
 namespace ElearningPortal.Functionalities
@@ -73,15 +127,24 @@ namespace ElearningPortal.Functionalities
     public abstract class PaymentMethod
     {
         public decimal Amount { get; protected set; }
+        decimal DiscountThreshold = 500; 
 
+       
         protected PaymentMethod(decimal amount)
         {
             if (amount <= 0)
-                throw new ArgumentException("Payment amount must be greater than zero.");
+                throw new ArgumentException(" Payment amount must be greater than zero.");
 
             Amount = amount;
         }
 
+     
+        public bool IsEligibleForDiscount()
+        {
+            return Amount >= DiscountThreshold;
+        }
+
+     
         public abstract bool ProcessPayment();
     }
 
@@ -91,7 +154,20 @@ namespace ElearningPortal.Functionalities
 
         public override bool ProcessPayment()
         {
-            Console.WriteLine($"✅ Paid ₹{Amount} using Credit Card.");
+            
+            if (Amount <= 0)
+                throw new InvalidOperationException(" Amount must be greater than zero before processing.");
+
+           
+            if (IsEligibleForDiscount())
+                Console.WriteLine(" You are eligible for a discount!");
+            else
+                Console.WriteLine(" Amount is too low for a discount.");
+
+          
+            Console.WriteLine($" Paid ₹{Amount} using Credit Card.");
+
+            
             return true;
         }
     }
@@ -102,7 +178,20 @@ namespace ElearningPortal.Functionalities
 
         public override bool ProcessPayment()
         {
-            Console.WriteLine($"✅ Paid ₹{Amount} using PayPal.");
+          
+            if (Amount <= 0)
+                throw new InvalidOperationException("Amount must be greater than zero before processing.");
+
+       
+            if (IsEligibleForDiscount())
+                Console.WriteLine("You are eligible for a discount!");
+            else
+                Console.WriteLine(" Amount is too low for a discount.");
+
+         
+            Console.WriteLine($" Paid ₹{Amount} using PayPal.");
+
+           
             return true;
         }
     }
@@ -113,7 +202,20 @@ namespace ElearningPortal.Functionalities
 
         public override bool ProcessPayment()
         {
-            Console.WriteLine($"✅ Paid ₹{Amount} using UPI.");
+           
+            if (Amount <= 0)
+                throw new InvalidOperationException(" Amount must be greater than zero before processing.");
+
+            
+            if (IsEligibleForDiscount())
+                Console.WriteLine("You are eligible for a discount!");
+            else
+                Console.WriteLine("Amount is too low for a discount.");
+
+          
+            Console.WriteLine($"Paid ₹{Amount} using UPI.");
+
+          
             return true;
         }
     }

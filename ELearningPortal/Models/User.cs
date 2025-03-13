@@ -6,10 +6,10 @@ namespace ElearningPortal.Models
     public class User
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)] // ✅ This ensures MongoDB handles `_id` properly
+        [BsonRepresentation(BsonType.ObjectId)] 
         public string Id { get; set; }
 
-        [BsonElement("Username")] // Optional, explicitly map to MongoDB field name
+        [BsonElement("Username")] 
         public string Username { get; set; }
 
         [BsonElement("Password")]

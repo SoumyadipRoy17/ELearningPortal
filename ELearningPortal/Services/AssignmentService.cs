@@ -14,7 +14,7 @@ namespace ElearningPortal.Services
 
         public static void ShowAssignments()
         {
-            Console.WriteLine("\n📄 Available Assignments:");
+            Console.WriteLine("\n Available Assignments:");
             foreach (var assignment in Assignments)
             {
                 Console.WriteLine($"- {assignment}");

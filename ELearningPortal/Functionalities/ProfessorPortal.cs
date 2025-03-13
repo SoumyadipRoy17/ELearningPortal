@@ -85,7 +85,7 @@ public class ProfessorPortal : IPortal
     {
 
         ShowNotifications();
-        Console.WriteLine("\n🎓 Professor Portal:");
+        Console.WriteLine("\n Professor Portal:");
         Console.WriteLine("1. Add Course");
         Console.WriteLine("2. View All Courses");
         Console.WriteLine("3. Exit");
@@ -96,7 +96,7 @@ public class ProfessorPortal : IPortal
 
             if (choice == "3")
             {
-                Console.WriteLine("👋 Exiting the portal...");
+                Console.WriteLine(" Exiting the portal...");
                 return;
             }
 
@@ -112,13 +112,13 @@ public class ProfessorPortal : IPortal
                 }
                 else
                 {
-                    Console.WriteLine("❌ Invalid price. Please enter a numeric value.");
+                    Console.WriteLine("Invalid price. Please enter a numeric value.");
                 }
             }
             else if (choice == "2")
             {
                 var courses = _courseService.GetAllCourses();
-                Console.WriteLine("\n📚 Available Courses:");
+                Console.WriteLine("\n Available Courses:");
                 foreach (var course in courses)
                 {
                     Console.WriteLine($"- {course.CourseName} (₹{course.Price})");
@@ -133,10 +133,10 @@ public class ProfessorPortal : IPortal
         var notifications = _notificationService.GetNotificationsForUser(_userId);
         if (notifications.Count > 0)
         {
-            Console.WriteLine("\n🔔 Notifications:");
+            Console.WriteLine("\n Notifications:");
             foreach (var notification in notifications)
             {
-                Console.WriteLine($"📢 {notification.Message} ({notification.CreatedAt})");
+                Console.WriteLine($" {notification.Message} ({notification.CreatedAt})");
             }
         }
     }

@@ -14,7 +14,7 @@ namespace ElearningPortal.Services
 
         public static void ShowTests()
         {
-            Console.WriteLine("\n🔍 Available Tests:");
+            Console.WriteLine("\nAvailable Tests:");
             foreach (var test in Tests)
             {
                 Console.WriteLine($"- {test}");

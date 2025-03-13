@@ -19,7 +19,7 @@ namespace ElearningPortal.Functionalities
 
         public void Submit()
         {
-            Console.WriteLine($"📖 Written Assignment '{Name}' submitted successfully!");
+            Console.WriteLine($"Written Assignment '{Name}' submitted successfully!");
         }
     }
 
@@ -34,7 +34,7 @@ namespace ElearningPortal.Functionalities
 
         public void Submit()
         {
-            Console.WriteLine($"🔬 Practical Assignment '{Name}' submitted successfully!");
+            Console.WriteLine($"Practical Assignment '{Name}' submitted successfully!");
         }
     }
 }

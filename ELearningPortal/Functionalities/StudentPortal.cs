@@ -190,7 +190,7 @@ using ElearningPortal.Functionalities;
 
 namespace ElearningPortal.Functionalities
 {
-    public class StudentPortal : IPortal
+    public sealed class StudentPortal : IPortal
     {
         private readonly ICourseService _courseService;
         private readonly PaymentHandler _paymentHandler;  // ✅ Encapsulated payment logic
@@ -207,10 +207,10 @@ namespace ElearningPortal.Functionalities
 
         public void ShowMenu()
         {
-            ShowNotifications();  // ✅ Show unread notifications when the student logs in
+            ShowNotifications();  
             while (true)
             {
-                Console.WriteLine("\n📚 Student Portal:");
+                Console.WriteLine("\nStudent Portal:");
                 Console.WriteLine("1. View Available Courses");
                 Console.WriteLine("2. Enroll in a Course");
                 Console.WriteLine("3. View Tests and Assignments");
@@ -233,7 +233,7 @@ namespace ElearningPortal.Functionalities
                     case "4":
                         return;
                     default:
-                        Console.WriteLine("⚠️ Invalid choice. Please try again.");
+                        Console.WriteLine(" Invalid choice. Please try again.");
                         break;
                 }
             }
@@ -243,21 +243,21 @@ namespace ElearningPortal.Functionalities
             var notifications = _notificationService.GetNotificationsForUser(_userId);
             if (notifications.Count > 0)
             {
-                Console.WriteLine("\n🔔 Notifications:");
+                Console.WriteLine("\n Notifications:");
                 foreach (var notification in notifications)
                 {
-                    Console.WriteLine($"📢 {notification.Message} ({notification.CreatedAt})");
+                    Console.WriteLine($" {notification.Message} ({notification.CreatedAt})");
                 }
             }
         }
         private void ShowCourses()
         {
-            Console.WriteLine("\n📚 Available Courses:");
+            Console.WriteLine("\n Available Courses:");
             var courses = _courseService.GetAllCourses();
 
             if (courses.Count == 0)
             {
-                Console.WriteLine("⚠️ No courses available.");
+                Console.WriteLine(" No courses available.");
                 return;
             }
 
@@ -269,7 +269,7 @@ namespace ElearningPortal.Functionalities
 
         private void ShowTestsAndAssignments()
         {
-            Console.WriteLine("\n📚 Tests & Assignments for All Courses");
+            Console.WriteLine("\n Tests & Assignments for All Courses");
             TestService.ShowTests();       // ✅ Display static tests
             AssignmentService.ShowAssignments(); // ✅ Display static assignments
         }
@@ -282,18 +282,18 @@ namespace ElearningPortal.Functionalities
 
             if (course == null)
             {
-                Console.WriteLine("⚠️ Course not found.");
+                Console.WriteLine(" Course not found.");
                 return;
             }
 
             if (_paymentHandler.ProcessPayment(course.Price))
             {
-                Console.WriteLine($"🎉 Successfully enrolled in {course.CourseName}!");
+                Console.WriteLine($" Successfully enrolled in {course.CourseName}!");
                 _courseService.EnrollStudent(courseId);
             }
             else
             {
-                Console.WriteLine("❌ Payment failed! Try again.");
+                Console.WriteLine("Payment failed! Try again.");
             }
         }
     }
