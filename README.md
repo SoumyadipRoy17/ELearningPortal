@@ -1,5 +1,4 @@
 # ELearningPortal
-# ELearningPortal
 
 ## Overview
 
