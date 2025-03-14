@@ -14,7 +14,7 @@ ELearningPortal is a simple backend-only project designed to manage an e-learnin
 ## Technologies Used
 
 - **Database:** MongoDB
-- **Backend:** Plain script (no Node.js or web framework involved)
+- **Backend:** C#
 
 ## Installation & Setup
 
@@ -54,8 +54,8 @@ Copy
 Edit
 {
   "_id": "ObjectId",
-  "name": "John Doe",
-  "email": "john@example.com",
+  "name": "Roy Sam",
+  "email": "roy@exaom.com",
   "role": "student"
 }
 Courses Collection (courses)
