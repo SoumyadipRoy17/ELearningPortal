@@ -70,9 +70,11 @@ Edit
   "instructor": "Jane Smith"
 }
 Contributing
+****
 **6.Contributions are welcome! To contribute:**
 
 **7.Fork the repository.**
+****
 Create a new branch for your changes.
 Commit and push your changes.
 Open a pull request.
