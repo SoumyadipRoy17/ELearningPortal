@@ -70,8 +70,8 @@ Edit
   "instructor": "Jane Smith"
 }
 Contributing
-**6.Contributions are welcome! To contribute:
-**
+**6.Contributions are welcome! To contribute:**
+
 **7.Fork the repository.**
 Create a new branch for your changes.
 Commit and push your changes.
@@ -87,4 +87,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 **Contact**
 For questions or suggestions, please open an issue in this repository.
 
-This version reflects your **MongoDB-based** and **simple backend** project. Let me know if you need modifications! 🚀
+
